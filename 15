@@ -8,7 +8,7 @@ while isborder(r, side_to_wall)
 for _ in 1:n_steps
 shatl!( _ -> !isborder(r, side_to_wall), r, side)
 end
-side = inverse_side(side)
+side = i_side(side)
 n_steps += 1
 end
 
