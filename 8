@@ -1,0 +1,10 @@
+using HorizonSideRobots
+function move_if_not_marker!(r::Robot, side::HorizonSide)::Bool
+    
+if !ismarker(r)
+move!(r, side)
+return false
+end
+
+return true
+end
