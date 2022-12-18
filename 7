@@ -5,7 +5,7 @@ ort_side = HorizonSide((Int(side) + 1) % 4)
 while isborder(r, side)
 moves!(r, ort_side, n_steps)
 n_steps += 1
-ort_side = inverse_side(ort_side)
+ort_side = i_side(ort_side)
 end
 end
 
