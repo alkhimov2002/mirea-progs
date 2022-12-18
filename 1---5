@@ -30,16 +30,16 @@ function putmarkers_until_border!(r::Robot, side::HorizonSide)::Int
     end 
     return n_steps
 end
-
-function mark_cross!(r::Robot)#задача 1
+#1
+function mark_cross!(r::Robot)
     for side in (Nord, Sud, West, Ost)
         n_steps = putmarkers_until_border!(r, side)
         moves!(r, i_side(side), n_steps)
     end
     putmarker!(r)
 end
-
-function mark_perimetr!(r::Robot)#задача 2
+#2
+function mark_perimetr!(r::Robot)#2
     steps_to_left_down_angle = [0, 0] # (шаги_вниз, шаги_влево)
     steps_to_left_down_angle[1] = move_until_border!(r, Sud)
     steps_to_left_down_angle[2] = move_until_border!(r, West)
@@ -51,7 +51,7 @@ function mark_perimetr!(r::Robot)#задача 2
 end
 
 
-function get_left_down_angle!(r::Robot)::NTuple{2, Int}# перемещает робота в нижний левый угол, возвращает количество шагов
+function get_left_down_angle!(r::Robot)::NTuple{2, Int}
     steps_to_left_border = move_until_border!(r, West)
     steps_to_down_border = move_until_border!(r, Sud)
     return (steps_to_down_border, steps_to_left_border)
@@ -62,8 +62,8 @@ function get_to_origin!(r::Robot, steps_to_origin::NTuple{2, Int})
         moves!(r, side, steps_to_origin[i])
     end
 end
-
-function mark_fild!(r::Robot) #задача 3
+#3
+function mark_fild!(r::Robot) 
     steps_to_origin = get_left_down_angle!(r)
     putmarker!(r)
     while !isborder(r, Ost)
@@ -103,8 +103,8 @@ function i_side(sides::NTuple{2, HorizonSide})
     new_sides = (i_side(sides[1]), i_side(sides[2]))
     return new_sides
 end
-
-function kun_ka!(r::Robot) #задача 4
+#4
+function kun_ka!(r::Robot)
     sides = (Nord, Ost, Sud, West)
     for i in 1:4
         first_side = sides[i]
