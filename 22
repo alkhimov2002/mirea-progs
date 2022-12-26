@@ -12,3 +12,4 @@ move!(robot, side)
 end
 end
 inverse(side::HorizonSide) = HorizonSide((Int(side) +2) %4)
+#
