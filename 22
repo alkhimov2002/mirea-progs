@@ -1,3 +1,4 @@
+#22
 using HorizonSideRobots
 function move_symm!(robot, side)
 if isborder(robot, side)
